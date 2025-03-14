@@ -1,4 +1,0 @@
-{
-  "installCommand": "pnpm install --hoist",
-  "buildCommand": "pnpm run build"
-}
