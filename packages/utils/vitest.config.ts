@@ -4,6 +4,7 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
+    environment: "jsdom",
     globals: true,
     // setupFiles: "./vitest.setup.ts",
     css: true,
@@ -16,7 +17,7 @@ export default defineConfig({
       },
       reporter: ["text", "json-summary", "json", "html"],
       reportOnFailure: true,
-      include: ["**/*.{ts,tsx}"],
+      include: ["**/*.ts"],
       exclude: [
         "dist/",
         "node_modules/",

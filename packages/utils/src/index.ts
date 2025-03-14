@@ -1,2 +1,2 @@
-export { add } from './add'
-export { sub } from './sub'
+export * from './arrayUtils/arrayUtils';
+export * from './clamp/clamp';

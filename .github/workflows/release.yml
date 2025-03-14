@@ -20,7 +20,8 @@ jobs:
 
       - run: npm install -g pnpm
       - run: pnpm install
-      - run: pnpm ready
+      - run: pnpm test
+      - run: pnpm build
       
       - run: |
           if npm view @polgubau/utils@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
