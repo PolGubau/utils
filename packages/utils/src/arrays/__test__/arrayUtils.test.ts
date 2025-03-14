@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { chunk, first, last, remove, removeFirst, removeLast } from "./arrayUtils";
+import { chunk, first, last, remove, removeFirst, removeLast } from "../";
 
 describe("Array Utility Functions", () => {
   describe("first", () => {

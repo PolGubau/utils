@@ -1,5 +1,5 @@
+import { isObject } from "../../comparators";
 import { cloneDeep } from "../clone-deps/clone-deep";
-import { isObject } from "../is-object/is-object";
 
 /**
  * Merge and deep copy the values of all of the enumerable own properties of target object from source object to a new object

@@ -1,4 +1,4 @@
-import { isObject } from "../is-object/is-object";
+import { isObject } from "../../comparators";
 
 /**
  * Deep clone an object

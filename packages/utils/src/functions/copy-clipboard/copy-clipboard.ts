@@ -8,4 +8,6 @@ export const copyToClipboard: CopyFn = async (text) => {
 
   // Try to save to clipboard then save it in the state if worked
   await navigator.clipboard.writeText(text);
+
+  return true;
 };

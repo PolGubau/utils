@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { shuffle } from "./shuffle";
+import { shuffle } from "../shuffle";
 
 describe("shuffle", () => {
   it("randomizes the order of an array", () => {

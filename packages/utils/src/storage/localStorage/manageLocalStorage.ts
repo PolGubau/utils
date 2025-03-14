@@ -1,4 +1,4 @@
-import { json } from "../handle-json/handle-json";
+import { json } from "../../parsers/handle-json/handle-json";
 
 // Function to get a value from localStorage
 export function getLocalStorage(key: string, initialValue: unknown) {

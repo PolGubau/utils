@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { groupBy } from "./group-by";
+import { groupBy } from "../group-by";
 
 describe("groupBy", () => {
   it("should group elements by a given key", () => {

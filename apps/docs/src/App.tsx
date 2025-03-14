@@ -1,5 +1,5 @@
 import { Background } from "./components/bg";
-
+import pkg from "@polgubau/utils";
 function App() {
 	return (
 		<div className="h-screen w-screen relative text-white overflow-x-hidden">
@@ -33,7 +33,7 @@ function App() {
 							</div>
 						</header>
 
-						<pre>
+						<pre onClick={() => copyToClipboard("pnpm i @polgubau/utils")}>
 							<code className="flex w-fit border border-neutral-500/50 rounded-xl px-4 py-2 bg-neutral-900/50 cursor-copy">
 								pnpm i @polgubau/utils
 							</code>

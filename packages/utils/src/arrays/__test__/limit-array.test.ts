@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { limitArray } from "./limit-array";
+import { limitArray } from "../limit-array";
 test("limitArray function tests", () => {
   const inputArray: number[] = [1, 2, 3, 4, 5];
   const result = limitArray(inputArray);
