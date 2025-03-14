@@ -142,7 +142,7 @@ export function Background({
 		const container = containerRef.current;
 		const renderer = new Renderer();
 		const gl = renderer.gl;
-		gl.clearColor(0, 0, 0, 1);
+		gl.clearColor(0, 0, 0, 1); // Set the clear color to black, fully opaque
 
 		// biome-ignore lint/style/useConst: <explanation>
 		let program: Program;
