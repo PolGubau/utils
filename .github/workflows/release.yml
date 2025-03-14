@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/animated
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@polgubau"
+
+      - run: npm install -g pnpm
+      - run: pnpm install
+      - run: pnpm ready
+      
+      - run: |
+          if npm view @polgubau/animated@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
+            echo "La versión ya está publicada. Saliendo..."
+            exit 0
+          fi
+          npm publish --access public
+        id: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+      - if: ${{ steps.publish.outputs.type }}
+        run: echo "Version changed!"

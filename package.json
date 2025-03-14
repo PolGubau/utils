@@ -1,0 +1,27 @@
+{
+  "name": "@polgubau/utils",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm run /^dev:.*/",
+    "dev:lib": "cd packages/utils && pnpm watch",
+    "dev:app": "cd apps/demo && pnpm dev",
+    "blib": "cd packages/utils && pnpm ready"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolGubau/utils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PolGubau/utils/issues"
+  },
+  "homepage": "https://github.com/PolGubau/utils#readme",
+  "description": ""
+}
