@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: packages/animated
+        working-directory: packages/utils
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +23,7 @@ jobs:
       - run: pnpm ready
       
       - run: |
-          if npm view @polgubau/animated@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
+          if npm view @polgubau/utils@$(node -p "require('./package.json').version") > /dev/null 2>&1; then
             echo "La versión ya está publicada. Saliendo..."
             exit 0
           fi
