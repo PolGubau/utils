@@ -1,30 +1,69 @@
 {
   "name": "@polgubau/utils",
+  "displayName": "utils",
   "version": "1.0.0",
-  "description": "",
+  "description": "A collection of utility functions for TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PolGubau/utils.git"
+  },
   "files": [
     "dist",
     "package.json"
   ],
+  "maintainers": [
+    {
+      "name": "Pol Gubau Amores",
+      "email": "gubaupol@gmail.com"
+    }
+  ],
   "scripts": {
-    "build": "tsup ./src"
+    "build": "tsup ./src",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "format": "biome format --write ./src",
+    "format-check": "biome format ./src",
+    "lint": "biome check .",
+    "lint-check": "biome lint ./src",
+    "check": "biome lint --write .",
+    "lint-fix": "biome check --write ."
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     }
   },
+  "contributors": [
+    "Pol Gubau Amores <gubaupol@gmail.com> (https://polgubau.com)"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "typescript",
+    "utils",
+    "polgubau",
+    "polgubau/utils"
+  ],
+  "license": "MIT",
+  "author": "Pol Gubau Amores <gubaupol@gmail.com> (https://polgubau.com)",
+  "engines": {
+    "node": ">= 22",
+    "npm": "Please use pnpm instead of yarn to install dependencies",
+    "yarn": "Please use pnpm instead of yarn to install dependencies",
+    "pnpm": ">= 9"
+  },
   "packageManager": "pnpm@10.6.1",
   "devDependencies": {
+    "@polgubau/biome-config": "^1.0.0",
+    "@vitest/coverage-v8": "^3.0.8",
     "tsup": "^8.4.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  },
+  "dependencies": {
+    "@biomejs/biome": "^1.9.4"
   }
 }
