@@ -19,11 +19,8 @@ export enum DirEnum {
 export type Dir = `${DirEnum}`;
 
 export function getDocumentDirection(): Dir {
-	if (typeof window === "undefined") {
+	if (typeof window === "undefined" || !window.document) {
 		return "ltr";
-	}
-	if (typeof document === "undefined") {
-		return "ltr"; // For Fresh purpose
 	}
 
 	const dirAttribute = document.documentElement.getAttribute("dir") as Dir;

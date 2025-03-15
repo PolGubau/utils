@@ -1,6 +1,5 @@
 packages:
   - packages/utils
   - apps/docs
-ignoredBuiltDependencies:
-  - '@polgubau/animated'
-  - esbuild
+  - apps/landing
+
