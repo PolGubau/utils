@@ -1,24 +1,35 @@
 import { Card } from "components/card";
+import { List } from "components/util-list/list";
 import { dataAccess } from "data/dataAccess";
+import type { FuzzyResult, HighlightRanges } from "data/ff";
 import { useState } from "react";
 import { Link } from "react-router";
-import type { Data } from "~/assets/data.types";
+import type { Data, Util } from "~/assets/data.types";
 type ListPageProps = {
 	data: Data;
 };
 export const ListPage = (props: ListPageProps) => {
 	const [search, setSearch] = useState("");
 
-	const [utils, setUtils] = useState(props.data.utils);
+	const initList: FuzzyResult<Util>[] = props.data.utils.map((util) => {
+		return { item: util, score: 0, matches: [] };
+	});
+	const [data, setData] = useState<FuzzyResult<Util>[]>(initList);
+
 	const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (!e.target.value) {
+			setData(initList);
+			setSearch("");
+			return;
+		}
 		const value = e.target.value.toLowerCase();
 		const fuzzyResult = dataAccess.filterUtils({
 			q: value,
 		});
-		const values = fuzzyResult.map((util) => util.item);
-		setUtils(values);
+		setData(fuzzyResult);
 		setSearch(value);
 	};
+
 	return (
 		<section className="flex gap-[10vh] flex-col items-center pt-20 h-full">
 			<Card>
@@ -38,18 +49,7 @@ export const ListPage = (props: ListPageProps) => {
 			</Card>
 
 			<Card>
-				<ul className="flex flex-col gap-2 w-full md:min-w-md">
-					{utils.map((util) => (
-						<li key={util.name}>
-							<Link
-								to={`/docs/${util.name}`}
-								className="hover:underline capitalize"
-							>
-								{util.name}
-							</Link>
-						</li>
-					))}
-				</ul>{" "}
+				<List data={data} />
 			</Card>
 		</section>
 	);

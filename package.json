@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "pnpm run /^dev:.*/",
     "dev:lib": "cd packages/utils && pnpm build:watch",
-    "dev:app": "cd apps/docs && pnpm dev",
+    "dev:app": "cd apps/landing && pnpm dev",
     "build:lib": "cd packages/utils && pnpm build"
   },
   "repository": {

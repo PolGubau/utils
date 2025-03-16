@@ -1,4 +1,3 @@
-import { Background } from "components/bg";
 import { Card } from "components/card";
 import { Content } from "components/content";
 import { CopySnipped } from "components/copy-snipped";

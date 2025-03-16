@@ -54,6 +54,10 @@ class DataAccess {
 		if (category && category !== "all") {
 			return filtered.filter((util) => util.item.category === category);
 		}
+
+		// lower is better score
+		// const sortedByScore = filtered.sort((a, b) => a.score - b.score);
+
 		return filtered;
 	}
 }

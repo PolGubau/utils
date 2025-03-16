@@ -14,7 +14,7 @@ export interface Data {
 	utils: Util[];
 }
 
-interface Util {
+export interface Util {
 	name: string;
 	description: string;
 	category: Category;
