@@ -70,7 +70,7 @@
     }
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/esm/index.mjs",
   "types": "./dist/esm/index.d.mts",
   "files": [
     "dist",
