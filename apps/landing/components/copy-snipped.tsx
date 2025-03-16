@@ -1,4 +1,4 @@
-import { copyToClipboard } from "@polgubau/utils/functions";
+import { copyToClipboard } from "@polgubau/utils";
 import { useState } from "react";
 export const CopySnipped = () => {
 	const [isCopied, setIsCopied] = useState(false);
