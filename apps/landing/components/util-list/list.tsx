@@ -7,10 +7,10 @@ type ListProps = {
 export const List = (props: ListProps) => {
 	const { data } = props;
 	return (
-		<ul className="flex flex-col gap-2 w-full md:min-w-md">
+		<ul className="flex flex-col gap-2 w-full divide-y divide-neutral-500/20 md:min-w-md">
 			{data.map((d) => {
 				return (
-					<li key={d.item.name} className="flex">
+					<li key={d.item.name}>
 						<Item data={d} />
 					</li>
 				);

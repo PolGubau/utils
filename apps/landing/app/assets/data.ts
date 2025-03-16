@@ -12,7 +12,7 @@ export const rawData: Data = {
 			tags: ["accessibility", "document", "direction"],
 			author: "Polgubau",
 			since: "1.0.0",
-			lastUpdated: "2024-03-15",
+			lastUpdated: "2025-03-15",
 			type: "sync",
 			compatibility: "browser",
 			example: [
@@ -847,7 +847,7 @@ export const rawData: Data = {
 			name: "cloneDeep",
 			description:
 				"Deep clone an object. A deep clone is a clone of the source object and all of its children, and their children, and so on.",
-			category: "functions",
+			category: "objects",
 			tags: ["clone", "deep", "object", "recursion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -882,7 +882,7 @@ export const rawData: Data = {
 			name: "getMainField",
 			description:
 				"Retrieves the main field from an item object based on a predefined list of labels to highlight.",
-			category: "functions",
+			category: "objects",
 			tags: ["object", "field", "main", "label", "extraction"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -918,7 +918,7 @@ export const rawData: Data = {
 			name: "merge",
 			description:
 				"Merges the properties of the source object into the target object, performing a deep merge.",
-			category: "functions",
+			category: "objects",
 			tags: ["merge", "deep merge", "object", "recursive", "modification"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -962,7 +962,7 @@ export const rawData: Data = {
 		{
 			name: "isObjectLike",
 			description: "Checks if the value is an object (excluding null).",
-			category: "functions",
+			category: "objects",
 			tags: ["type check", "object", "null check"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -998,7 +998,7 @@ export const rawData: Data = {
 			name: "mergeDeep",
 			description:
 				"Merges and deep copies the values of all enumerable own properties of the target object from the source object to a new object.",
-			category: "functions",
+			category: "objects",
 			tags: [
 				"merge",
 				"deep merge",
@@ -1047,7 +1047,7 @@ export const rawData: Data = {
 		{
 			name: "omit",
 			description: "Creates a new object with specified keys omitted.",
-			category: "functions",
+			category: "objects",
 			tags: ["omit", "object", "manipulation", "exclude", "keys"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1088,7 +1088,7 @@ export const rawData: Data = {
 		{
 			name: "toPath",
 			description: "Converts a deep key string into an array of path segments.",
-			category: "functions",
+			category: "objects",
 			tags: ["toPath", "deepKey", "path", "string", "parse", "array"],
 			author: "Pol Gubau",
 			since: "1.0.0",

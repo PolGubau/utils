@@ -1,5 +1,5 @@
 import { rawData } from "~/assets/data";
-import type { Category, Data } from "~/assets/data.types";
+import type { Category, CategoryWithAll, Data } from "~/assets/data.types";
 import createFuzzySearch from "./ff";
 class DataAccess {
 	private data: Data;
@@ -26,7 +26,7 @@ class DataAccess {
 		category = "all",
 	}: {
 		q?: string;
-		category?: Category | "all";
+		category?: CategoryWithAll;
 	}) {
 		// return this.data.utils.filter((util) => {
 
@@ -49,7 +49,11 @@ class DataAccess {
 		// 		category && category !== "all" ? util.category === category : true;
 		// 	return nameMatch && categoryMatch;
 		// });
-		const filtered = fuzzySearch(q);
+		const filtered = q
+			? fuzzySearch(q)
+			: this.data.utils.map((util) => {
+					return { item: util, score: 0, matches: [] };
+				});
 
 		if (category && category !== "all") {
 			return filtered.filter((util) => util.item.category === category);

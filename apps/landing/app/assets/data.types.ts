@@ -1,13 +1,17 @@
-export type Category =
-	| "texts"
-	| "storage"
-	| "functions"
-	| "arrays"
-	| "objects"
-	| "accessibility"
-	| "comparators"
-	| "parsers"
-	| "numbers";
+export const categories = [
+	"texts",
+	"storage",
+	"functions",
+	"arrays",
+	"objects",
+	"accessibility",
+	"comparators",
+	"parsers",
+	"numbers",
+] as const;
+
+export type Category = (typeof categories)[number];
+export type CategoryWithAll = Category | "all";
 export interface Data {
 	name: string;
 	version: `${number}.${number}.${number}`;
