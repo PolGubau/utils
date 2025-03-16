@@ -46,13 +46,16 @@ export const ListPage = (props: ListPageProps) => {
 		<section className="flex gap-[10vh] flex-col pt-20 h-full">
 			<section className="max-w-2xl w-full mx-auto">
 				<Card>
-					<div className="text-xs gap-4 opacity-60 font-thin">
-						<Link to="/" className="hover:underline">
+					<nav>
+						<Link
+							to="/"
+							className="hover:underline text-xs gap-4 opacity-60 font-thin"
+						>
 							&lt; Back to Home
 						</Link>
-					</div>
+					</nav>
 					<h1 className="text-3xl font-bold text-center mb-4">Util List</h1>
-					<nav className="grid grid-cols-2 md:grid-cols-[2fr_1fr] gap-4">
+					<nav className="grid sm:grid-cols-2 md:grid-cols-[2fr_1fr] gap-4">
 						<label htmlFor="query">
 							<span className="text-sm">Search</span>
 							<input
@@ -99,6 +102,14 @@ export const ListPage = (props: ListPageProps) => {
 					) : (
 						<p className="text-gray-500 text-center">No results found</p>
 					)}
+					<nav>
+						<Link
+							to="/"
+							className="hover:underline text-xs gap-4 opacity-60 font-thin"
+						>
+							&lt; Back to Home
+						</Link>
+					</nav>
 				</Card>
 			</section>
 		</section>

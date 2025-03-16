@@ -1,8 +1,7 @@
 import { CopySnipped } from "./copy-snipped";
-import { Api } from "./fns/api";
 export const Content = () => {
 	return (
-		<section className="prose prose-invert max-md:prose-sm prose-h2:text-primary prose-code:text-yellow-50 ">
+		<section className="prose prose-invert max-md:prose-sm prose-h2:text-primary prose-code:text-yellow-50 p-1 max-md:max-w-[80vw]">
 			<h1>Lightweight Utility Library ✨</h1>
 			<h2>What and why</h2>
 			Over the past few years, <strong>TypeScript</strong> has become almost my
