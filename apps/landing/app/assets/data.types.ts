@@ -1,5 +1,5 @@
 export const categories = [
-	"texts",
+	"strings",
 	"storage",
 	"functions",
 	"arrays",
@@ -8,6 +8,7 @@ export const categories = [
 	"comparators",
 	"parsers",
 	"numbers",
+	"random",
 	"dates",
 ] as const;
 
@@ -38,10 +39,10 @@ export interface Util {
 
 interface Prop {
 	name: string;
-	type: string;
-	default: string | null | number | boolean;
-	required: boolean;
 	description: string;
+	type: string;
+	default?: string | null | number | boolean;
+	required?: boolean;
 }
 
 type BaseReturn = {

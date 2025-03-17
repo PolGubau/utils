@@ -32,6 +32,194 @@ export const rawData: Data = {
 				"This function requires a browser environment with a valid document object.",
 		},
 		{
+			name: "getRandomInt",
+			description: "Get a random integer between min and max (inclusive).",
+			category: "random",
+			tags: ["random", "number", "integer"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "getRandomInt(1, 10)",
+					output: "7",
+				},
+			],
+			props: [
+				{
+					name: "min",
+					type: "number",
+					description: "Minimum value (inclusive).",
+				},
+				{
+					name: "max",
+					type: "number",
+					description: "Maximum value (inclusive).",
+				},
+			],
+			return: {
+				type: "number",
+				description: "A random integer between min and max.",
+			},
+			error: null,
+			notes: "The function assumes min ≤ max.",
+		},
+		{
+			name: "getRandomFloat",
+			description: "Get a random floating-point number between min and max.",
+			category: "random",
+			tags: ["random", "number", "float"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "getRandomFloat(1, 5)",
+					output: "3.428571",
+				},
+			],
+			props: [
+				{ name: "min", type: "number", description: "Minimum value." },
+				{ name: "max", type: "number", description: "Maximum value." },
+			],
+			return: {
+				type: "number",
+				description: "A random float between min and max.",
+			},
+			error: null,
+			notes: "The function assumes min < max.",
+		},
+		{
+			name: "getRandomBoolean",
+			description: "Get a random boolean value (true or false).",
+			category: "random",
+			tags: ["random", "boolean"],
+			author: "Polgubau",
+			since: "1.0.4",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "getRandomBoolean()",
+					output: "true",
+				},
+			],
+			props: [],
+			return: { type: "boolean", description: "A random boolean value." },
+			error: null,
+			notes: "The probability of true and false is 50% each.",
+		},
+		{
+			name: "getRandomBooleanArray",
+			description: "Get an array of randomized boolean values (true or false).",
+			category: "random",
+			tags: ["random", "boolean", "array"],
+			author: "Polgubau",
+			since: "1.0.4",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "getRandomBooleanArray(3)",
+					output: "[true, false, true]",
+				},
+			],
+			props: [
+				{
+					name: "length",
+					type: "number",
+					default: null,
+					required: true,
+					description: "The length of the array to generate.",
+				},
+			],
+			return: { type: "boolean", description: "A random boolean value." },
+			error: null,
+			notes:
+				"The probability of true and false is 50% each, you need to specify the length.",
+		},
+		{
+			name: "slugify",
+			description: "Convert a string into a URL-friendly slug.",
+			category: "strings",
+			tags: ["string", "slug", "format"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "browser, server",
+			example: [
+				{
+					code: "slugify('Hello World!')",
+					output: '"hello-world"',
+				},
+				{
+					code: "slugify('Español está bien', { separator: '_' })",
+					output: '"espanol_esta_bien"',
+				},
+				{
+					code: "slugify('React & Svelte', { lowercase: false })",
+					output: '"React-Svelte"',
+				},
+			],
+			props: [
+				{
+					name: "text",
+					type: "string",
+					description: "The input text to convert into a slug.",
+				},
+
+				{
+					name: "options.separator",
+					type: "string",
+					description:
+						"Character used to separate words in the slug. Default is '-'.",
+					required: false,
+				},
+				{
+					name: "options.lowercase",
+					type: "boolean",
+					description:
+						"Whether to convert the slug to lowercase. Default is true.",
+					required: false,
+				},
+			],
+			return: {
+				type: "string",
+				description: "A URL-friendly slug generated from the input text.",
+			},
+			error: null,
+			notes:
+				"This function removes diacritics (accents) and replaces non-alphanumeric characters with the specified separator.",
+		},
+		{
+			name: "getRandomHexColor",
+			description: "Generate a random hexadecimal color.",
+			category: "random",
+			tags: ["random", "color", "hex"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "browser",
+			example: [
+				{
+					code: "getRandomHexColor()",
+					output: '"#a3f4b2"',
+				},
+			],
+			props: [],
+			return: { type: "string", description: "A random hex color string." },
+			error: null,
+			notes: "Generated colors are always 6-digit hex codes.",
+		},
+		{
 			name: "chunk",
 			description: "Chunk an array into smaller arrays of a specified size.",
 			category: "arrays",
@@ -1248,7 +1436,7 @@ export const rawData: Data = {
 		{
 			name: "px",
 			description: "Converts the specified number to a pixel string.",
-			category: "texts",
+			category: "strings",
 			tags: ["conversion", "unit", "px", "string"],
 			author: "Pol Gubau Amores - https://polgubau.com",
 			since: "1.0.0",
@@ -1286,7 +1474,7 @@ export const rawData: Data = {
 		{
 			name: "toCamelCase",
 			description: "Converts a string to camel case.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "camelCase", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1323,7 +1511,7 @@ export const rawData: Data = {
 		{
 			name: "toTitleCase",
 			description: "Converts a string to title case.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "titleCase", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1356,7 +1544,7 @@ export const rawData: Data = {
 		{
 			name: "toKebabCase",
 			description: "Converts a string to kebab case.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "kebabCase", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1388,7 +1576,7 @@ export const rawData: Data = {
 		{
 			name: "toUpperCase",
 			description: "Converts a string to upper case.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "upperCase", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1421,7 +1609,7 @@ export const rawData: Data = {
 		{
 			name: "toLowerCase",
 			description: "Converts a string to lower case.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "lowerCase", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1454,7 +1642,7 @@ export const rawData: Data = {
 		{
 			name: "capitalize",
 			description: "Capitalizes the first letter of a string.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "capitalize", "conversion"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1487,7 +1675,7 @@ export const rawData: Data = {
 		{
 			name: "removeWhitespace",
 			description: "Removes all whitespace from a string.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "whitespace", "removal"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1520,7 +1708,7 @@ export const rawData: Data = {
 		{
 			name: "reverseString",
 			description: "Reverses a string.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "reverse"],
 			author: "Pol Gubau",
 			since: "1.0.0",
@@ -1553,7 +1741,7 @@ export const rawData: Data = {
 		{
 			name: "truncateString",
 			description: "Truncates a string to a specified length.",
-			category: "texts",
+			category: "strings",
 			tags: ["string", "truncate"],
 			author: "Pol Gubau",
 			since: "1.0.0",
