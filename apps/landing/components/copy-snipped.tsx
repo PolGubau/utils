@@ -22,7 +22,7 @@ export const CopySnipped = ({
 		<button
 			type="button"
 			onClick={handleCopy}
-			className={`w-fit grid grid-cols-[1fr_auto] items-center gap-4 border-0 outline relative transition-all rounded-xl px-4 py-2 ${conditionalClassName} cursor-pointer`}
+			className={`w-fit grid grid-cols-[1fr_auto] items-center gap-4 border-0 outline relative transition-all rounded-xl px-4 py-2 ${conditionalClassName} cursor-pointer text-left max-sm:text-xs max-md:text-sm`}
 		>
 			<code className="not-prose">{text}</code>
 

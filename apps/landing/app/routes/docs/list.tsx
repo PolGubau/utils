@@ -1,17 +1,16 @@
 import { ListPage } from "../../pages/docs/list";
 import { dataAccess } from "data/dataAccess";
 import type { Route } from "./+types/list";
-
 export function meta(_args: Route.MetaArgs) {
 	return [
 		{
 			title:
-				"Docs - Utils, a lightweight Typescript helpers for your Projects 🚀 - Pol Gubau Amores",
+				"Docs - Utils - Lightweight helpers - Pol Gubau Amores",
 		},
 		{
 			name: "description",
 			content:
-				"Documentation of @polgubau/utils, a framework agnostic library with builtin helper functions for your typescript project",
+				"List of @polgubau/utils items, a framework agnostic library with builtin helper functions for your typescript project",
 		},
 		{
 			name: "keywords",
@@ -20,6 +19,20 @@ export function meta(_args: Route.MetaArgs) {
 		{
 			name: "author",
 			content: "Pol Gubau Amores",
+		},
+		{
+			property: "og:image",
+			content: "/og.png",
+		},
+		{
+			property: "og:title",
+			content:
+				"Utils - Lightweight Typescript helpers for your Projects 🚀 - Pol Gubau Amores",
+		},
+		{
+			property: "og:description",
+			content:
+				"Documentation of @polgubau/utils, a framework agnostic library with builtin helper functions for your typescript project",
 		},
 	];
 }

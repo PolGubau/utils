@@ -3,7 +3,6 @@ import { Content } from "components/content";
 import { CopySnipped } from "components/copy-snipped";
 import { Header } from "components/header";
 import { Links } from "components/home/links";
-import { Link } from "react-router";
 
 export function Homepage() {
 	return (

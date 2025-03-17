@@ -20,6 +20,20 @@ export function meta(_args: Route.MetaArgs) {
 			name: "author",
 			content: "Pol Gubau Amores",
 		},
+		{
+			property: "og:image",
+			content: "/og.png",
+		},
+		{
+			property: "og:title",
+			content:
+				"Utils - Lightweight Typescript helpers for your Projects 🚀 - Pol Gubau Amores",
+		},
+		{
+			property: "og:description",
+			content:
+				"Documentation of @polgubau/utils, a framework agnostic library with builtin helper functions for your typescript project",
+		},
 	];
 }
 
