@@ -32,5 +32,6 @@ jobs:
       with:
         branches: main
         badges-icon: vitest
-        coverage-path: ./coverage/coverage-summary.json
+        coverage-summary-path: |
+            ./packages/utils/coverage/coverage-summary.json
  
