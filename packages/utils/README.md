@@ -107,8 +107,8 @@ Made with ❤️ by [Pol Gubau Amores](https://polgubau.com)
 
 
 
-[buildImg]:<https://github.com/PolGubau/vitest-badge-action/actions/workflows/validation.yaml/badge.svg>
-[buildLnk]:<https://github.com/PolGubau/vitest-badge-action/actions/workflows/validation.yaml>
+[buildImg]:<https://github.com/PolGubau/utils/actions/workflows/validation.yaml/badge.svg>
+[buildLnk]:<https://github.com/PolGubau/utils/actions/workflows/validation.yaml>
 [testLinesImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-lines.svg>
 [testStatementsImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-statements.svg>
 [testFunctionsImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-functions.svg>
