@@ -16,7 +16,7 @@ export default defineConfig({
 				functions: 0,
 				statements: 0,
 			},
-			reporter: ["json-summary"],
+			reporter: ["json-summary","text"],
 			reportOnFailure: true,
 			include: ["**/*.ts"],
 			exclude: [
