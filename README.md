@@ -1,3 +1,13 @@
+![Branches](./badges/packages/utils/coverage-branches.svg)
+![Functions](./badges/packages/utils/coverage-functions.svg)
+![Lines](./badges/packages/utils/coverage-lines.svg)
+![Statements](./badges/packages/utils/coverage-statements.svg)
+![Coverage total](./badges/packages/utils/coverage-total.svg)
+
+![Last commit](https://img.shields.io/github/last-commit/PolGUbau/utils?logo=git)
+![Last Update](https://img.shields.io/npm/last-update/%40polgubau%2Futils?logo=npm&label=last%20update)
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/PolGubau/utils/tree/main/packages/utils)
+
 # @polgubau/utils
 
 A collection of modern typescript utilities. 
