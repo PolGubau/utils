@@ -20,7 +20,7 @@ jobs:
 
       - run: npm install -g pnpm
       - run: pnpm install
-      - run: pnpm test
+      - run: pnpm coverage
       - run: pnpm build
       
       - run: |
