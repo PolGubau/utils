@@ -9,6 +9,21 @@
     "typecheck": "react-router typegen && tsc",
     "postinstall": "pnpm --filter @polgubau/utils build"
   },
+  "repository": {
+    "directory": "apps/landing",
+    "type": "git",
+    "url": "git+https://github.com/PolGubau/utils.git"
+  },
+  "license": "MIT",
+  "author": "Pol Gubau Amores <gubaupol@gmail.com> (https://polgubau.com)","maintainers": [
+    {
+      "name": "Pol Gubau Amores",
+      "email": "gubaupol@gmail.com"
+    }
+  ],
+  "contributors": [
+    "Pol Gubau Amores <gubaupol@gmail.com> (https://polgubau.com)"
+  ],
   "dependencies": {
     "@polgubau/utils": "workspace:*",
     "@react-router/node": "^7.3.0",

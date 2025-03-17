@@ -10,6 +10,7 @@
     "polgubau/utils"
   ],
   "repository": {
+    "directory": "packages/utils",
     "type": "git",
     "url": "git+https://github.com/PolGubau/utils.git"
   },
