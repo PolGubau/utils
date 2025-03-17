@@ -1,87 +1,112 @@
-# Welcome to React Router!
+![Branches](./badges/packages/utils/coverage-branches.svg)
+![Functions](./badges/packages/utils/coverage-functions.svg)
+![Lines](./badges/packages/utils/coverage-lines.svg)
+![Statements](./badges/packages/utils/coverage-statements.svg)
+![Coverage total](./badges/packages/utils/coverage-total.svg)
 
-A modern, production-ready template for building full-stack React applications using React Router.
+![Last commit](https://img.shields.io/github/last-commit/PolGUbau/utils?logo=git)
+![Last Update](https://img.shields.io/npm/last-update/%40polgubau%2Futils?logo=npm&label=last%20update)
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/PolGubau/utils/tree/main/packages/utils)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+# @polgubau/utils
 
-## Features
+A collection of modern typescript utilities. 
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+## 📦 Installation
 
-## Getting Started
+Install the package via npm or pnpm:
 
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
+```sh
+npm install @polgubau/utils
+# or
+pnpm add @polgubau/utils
 ```
 
-### Development
 
-Start the development server with HMR:
+## What and why
 
-```bash
-npm run dev
+Over the past few years, TypeScript has become almost my second mother tongue after Spanish.  
+I kept noticing how often I was rewriting the same utilities "debounce", "throttle", or "copy to clipboard" across different projects. Instead of reinventing the wheel every time, I decided to build a small library with the utilities I use the most in my daily work.
+
+**@polgubau/utils** is a lightweight utility library designed to simplify common JavaScript and TypeScript tasks. It's modular, framework-agnostic, tree-shakable, and optimized for performance.
+
+### What this is NOT ⚠️
+- A catch-all library that solves every problem.
+- A replacement for Lodash or Underscore.
+- A package that will unnecessarily inflate your bundle size.
+
+### What this IS ✅
+- A collection of small, focused utility functions.
+- Modular, tree-shakable and lightweight both for CJS and ESM.
+- Designed to be simple, efficient, and easy to use.
+- Fully typed, with TypeScript definitions included.
+
+## Installation
+
+Install the library using your package manager of choice:
+
+```sh
+pnpm add @polgubau/utils
 ```
 
-Your application will be available at `http://localhost:5173`.
+## Usage
 
-## Building for Production
+Import the utilities you need from the package:
 
-Create a production build:
-
-```bash
-npm run build
+```js
+import { copyToClipboard } from "@polgubau/utils";
 ```
 
-## Deployment
+For even better optimization, you can import specific modules or functions as needed:
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+```js
+import { copyToClipboard } from "@polgubau/utils/functions";
+import { shuffle } from "@polgubau/utils/arrays";
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+## Available Modules
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
+- **Storage**: Utilities for working with `localStorage` and `sessionStorage`.
+- **Accessibility**: Helpers to improve web accessibility.
+- **Arrays**: Functions to manipulate arrays efficiently.
+- **Comparators**: Utility functions for sorting and comparing data.
+- **Functions**: Higher-order functions and utility methods.
+- **Numbers**: Mathematical and number-related utilities.
+- **Objects**: Object manipulation and transformation helpers.
+- **Parsers**: Functions for parsing different types of data as JSON.
+- **Texts**: String and text processing utilities.
 
-### DIY Deployment
+## Example
 
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
+Using the arrays module:
 
-Make sure to deploy the output of `npm run build`
-
+```js
+import { limitArray } from "@polgubau/utils/arrays"; 
+const { limitedArray } = limitArray([1, 2, 3, 4, 5]); 
+console.log(limitedArray); // [1, 2]
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+
+## TypeScript Support
+
+As it should always be, this library includes full TypeScript support with type definitions included.
+
+
+
+## 🛠 Development
+
+### Building the project
+
+The easiest way to work with the project monorepo is to run
+
+```sh
+pnpm dev
 ```
+in the root directory. This will start a watch build for the package and start a local server to preview the documentation page.
 
-## Styling
+## 📜 License
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This project is licensed under the **MIT** License.  
 
 ---
 
-Built with ❤️ using React Router.
+Made with ❤️ by [Pol Gubau Amores](https://polgubau.com)
