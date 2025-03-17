@@ -40,7 +40,7 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 								.filter(([key]) => headerTableKeys.includes(key as keyof Util))
 								.map(([key, value]) => (
 									<tr key={key}>
-										<td className="font-bold text-neutral-100/80 w-1/5">
+										<td className="font-bold text-neutral-100/80 sm:w-1/3 md:w-1/5">
 											{formatString(key)}
 										</td>
 										<td>{formatString(value)}</td>
@@ -81,53 +81,68 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 							<p>{data.return.description}</p>
 							<p>Type: {data.return.type}</p>
 							{data.return.type === "enum" && (
-								<ul className="not-prose divide-y space-y-4 divide-neutral-500/20">
+								<ul className="flex gap-2 flex-wrap not-prose">
+									Options:
 									{data.return.options?.map((value) => (
-										<li key={value}>{value}</li>
+										<li
+											key={value}
+											className="bg-neutral-500/20 px-2 py-0.5 rounded-full"
+										>
+											{value}
+										</li>
 									))}
 								</ul>
 							)}
 						</div>
+						{data.props.length > 0 && (
+							<>
+								<h2>Props</h2>
+								<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+									<table>
+										<thead>
+											<tr>
+												<th>Name</th>
+												<th>Type</th>
+												<th>Default</th>
+												<th>Required</th>
+												<th>Description</th>
+											</tr>
+										</thead>
+										<tbody className="text-xs">
+											{data.props.map((param) => (
+												<tr key={param.name}>
+													<td>{param.name}</td>
+													<td>{param.type}</td>
+													<td>{param.default ?? "null"}</td>
+													<td>
+														{(param.required ?? false) ? (
+															<span className="bg-green-500/20 py-1 px-2 rounded-lg">
+																Yes
+															</span>
+														) : (
+															<span className="bg-red-500/20 py-1 px-2 rounded-lg">
+																No
+															</span>
+														)}
+													</td>
+													<td>{param.description}</td>
+												</tr>
+											))}
+										</tbody>
+									</table>
+								</div>
+							</>
+						)}
 
-						<h2>Props</h2>
-						<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
-							<table>
-								<thead>
-									<tr>
-										<th>Name</th>
-										<th>Type</th>
-										<th>Default</th>
-										<th>Required</th>
-										<th>Description</th>
-									</tr>
-								</thead>
-								<tbody className="text-xs">
-									{data.props.map((param) => (
-										<tr key={param.name}>
-											<td>{param.name}</td>
-											<td>{param.type}</td>
-											<td>{param.default ?? "null"}</td>
-											<td>
-												{(param.required ?? false) ? (
-													<span className="bg-green-500/20 py-1 px-2 rounded-lg">
-														Yes
-													</span>
-												) : (
-													<span className="bg-red-500/20 py-1 px-2 rounded-lg">
-														No
-													</span>
-												)}
-											</td>
-											<td>{param.description}</td>
-										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-						<h2>Notes</h2>
-						<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
-							<p>{data.notes}</p>
-						</div>
+						{data.notes && (
+							<>
+								<h2>Notes</h2>
+								<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+									<p>{data.notes}</p>
+								</div>
+							</>
+						)}
+
 						{data.error && (
 							<>
 								<h2>Errors</h2>
@@ -136,25 +151,35 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 								</div>
 							</>
 						)}
-						<div className="flex flex-col gap-2">
-							<h2>Tags</h2>
-							<ul>
-								{data.tags.map((tag) => (
-									<li key={tag}>
-										<span className="bg-neutral-500/20 text-sm px-2 py-1 rounded-full">
-											{tag}
-										</span>
-									</li>
-								))}
-							</ul>
-						</div>
 
-						<h2>Related</h2>
-						<ul className="not-prose divide-y space-y-4 divide-neutral-500/20 border-l-2 border-neutral-500/40 pl-4">
-							{related.map((item) => (
-								<Item key={item.name} data={{ item, score: 0, matches: [] }} />
-							))}
-						</ul>
+						{data.tags.length > 0 && (
+							<div className="flex flex-col gap-2">
+								<h2>Tags</h2>
+								<ul>
+									{data.tags.map((tag) => (
+										<li key={tag}>
+											<span className="bg-neutral-500/20 text-sm px-2 py-1 rounded-full">
+												{tag}
+											</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
+
+						{related.length > 0 && (
+							<>
+								<h2>Related</h2>
+								<ul className="not-prose divide-y space-y-4 divide-neutral-500/20 border-l-2 border-neutral-500/40 pl-4">
+									{related.map((item) => (
+										<Item
+											key={item.name}
+											data={{ item, score: 0, matches: [] }}
+										/>
+									))}
+								</ul>
+							</>
+						)}
 					</div>
 					<nav>
 						<Link

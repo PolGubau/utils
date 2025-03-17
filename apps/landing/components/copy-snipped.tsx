@@ -26,7 +26,7 @@ export const CopySnipped = ({
 		>
 			<code className="not-prose">{text}</code>
 
-			<span className="text-xs text-neutral-200/60">
+			<span className="text-xs text-neutral-200/60 min-w-[45px] text-right">
 				{isCopied ? "Copied!" : "Copy"}
 			</span>
 		</button>
