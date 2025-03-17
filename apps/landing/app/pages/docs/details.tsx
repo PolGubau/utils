@@ -3,11 +3,20 @@ import { Link } from "react-router";
 import type { Util } from "~/assets/data.types";
 
 import { formatString } from "@polgubau/utils/texts";
+import { CopySnipped } from "components/copy-snipped";
 
 type DetailsPageProps = {
 	data: Util;
 };
 export const DetailsPage = ({ data }: DetailsPageProps) => {
+	const headerTableKeys: ReadonlyArray<keyof Util> = [
+		"category",
+		"compatibility",
+		"since",
+		"author",
+		"type",
+		"lastUpdated",
+	] as const;
 	return (
 		<section className="flex flex-col pt-20 h-full ">
 			<article className="max-w-2xl w-full mx-auto ">
@@ -22,62 +31,108 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 					</nav>
 					<header className="mb-4 space-y-2">
 						<h1 className="text-3xl font-bold">{formatString(data.name)}</h1>
-						<h2 className="text-neutral-500">{data.description}</h2>
+						<h2 className="text-neutral-500 mb-4">{data.description}</h2>
+						<table className="text-sm text-neutral-500 w-full">
+							{Object.entries(data)
+								.filter(([key]) => headerTableKeys.includes(key as keyof Util))
+								.map(([key, value]) => (
+									<tr key={key}>
+										<td className="font-bold text-neutral-100/80 w-1/5">
+											{formatString(key)}
+										</td>
+										<td>{formatString(value)}</td>
+									</tr>
+								))}
+						</table>
 					</header>
 
-					<div className="prose prose-invert max-md:max-w-none mb-4">
-						<pre className="">
-							{`import { ${data.name} } from "@polgubau/utils/${data.category}";`}
-						</pre>
-						<h2>Notes</h2>
-						<p>{data.notes}</p>
+					<div className="prose prose-invert max-md:max-w-none mb-4 prose-sm">
+						<CopySnipped
+							text={`import { ${data.name} } from "@polgubau/utils/${data.category}";`}
+						/>
 
 						<h2>Example</h2>
-						<ul className="not-prose">
+						<ul className="not-prose divide-y space-y-4 divide-neutral-500/20 border-l-2 border-neutral-500/40 pl-4">
 							{data.example.map((example) => (
-								<li key={example.code}>
-									<pre className="rounded-lg p-2 bg-neutral-500/20 text-sm font-mono whitespace-pre-wrap">
+								<li
+									key={example.code}
+									className="grid gap-2 pb-4 pl-4 items-start grid-cols-[1fr_5fr]"
+								>
+									<h3 className="text-sm text-neutral-200/80">Input</h3>
+
+									<pre className="rounded-lg px-2 py-1 bg-neutral-500/20 text-xs font-mono whitespace-pre-wrap w-fit">
 										<code>{example.code}</code>
 									</pre>
-									<span className="text-xs pl-4">Output: {example.output}</span>
+
+									<h3 className="text-sm text-neutral-200/80">Output:</h3>
+
+									<pre className="rounded-lg px-2 py-1 bg-neutral-500/20 text-xs font-mono whitespace-pre-wrap w-fit">
+										{example.output}
+									</pre>
 								</li>
 							))}
 						</ul>
 
-						<h2>Props</h2>
-						<table>
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Type</th>
-									<th>Default</th>
-									<th>Required</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>
-								{data.props.map((param) => (
-									<tr key={param.name}>
-										<td>{param.name}</td>
-										<td>{param.type}</td>
-										<td>{param.default}</td>
-										<td>
-											{param.required ? (
-												<span className="bg-green-500/20 py-1 px-2 rounded-lg">
-													Yes
-												</span>
-											) : (
-												<span className="bg-red-500/20 py-1 px-2 rounded-lg">
-													No
-												</span>
-											)}
-										</td>
-										<td>{param.description}</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
+						<h2>Return</h2>
+						<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+							<p>{data.return.description}</p>
+							<p>Type: {data.return.type}</p>
+							{data.return.type === "enum" && (
+								<ul className="not-prose divide-y space-y-4 divide-neutral-500/20">
+									{data.return.options?.map((value) => (
+										<li key={value}>{value}</li>
+									))}
+								</ul>
+							)}
+						</div>
 
+						<h2>Props</h2>
+						<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Type</th>
+										<th>Default</th>
+										<th>Required</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody className="text-xs">
+									{data.props.map((param) => (
+										<tr key={param.name}>
+											<td>{param.name}</td>
+											<td>{param.type}</td>
+											<td>{param.default ?? "null"}</td>
+											<td>
+												{(param.required ?? false) ? (
+													<span className="bg-green-500/20 py-1 px-2 rounded-lg">
+														Yes
+													</span>
+												) : (
+													<span className="bg-red-500/20 py-1 px-2 rounded-lg">
+														No
+													</span>
+												)}
+											</td>
+											<td>{param.description}</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+						<h2>Notes</h2>
+						<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+							<p>{data.notes}</p>
+						</div>
+						{data.error && (
+							<>
+								<h2>Errors</h2>
+								<div className="border-l-2 border-neutral-500/40 pl-4 mb-4">
+									<p>{data.error}</p>
+								</div>
+							</>
+						)}
 						<div className="flex flex-col gap-2">
 							<h2>Tags</h2>
 							<ul>
@@ -90,9 +145,6 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 								))}
 							</ul>
 						</div>
-						<pre className="text-left text-xs">
-							{JSON.stringify(data, null, 2)}
-						</pre>
 					</div>
 					<nav>
 						<Link

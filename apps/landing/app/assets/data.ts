@@ -86,9 +86,16 @@ export const rawData: Data = {
 			compatibility: "universal",
 			example: [
 				{
-					code: "groupBy([{ category: 'fruit', name: 'apple' }, { category: 'fruit', name: 'banana' }, { category: 'vegetable', name: 'carrot' }], item => item.category)",
-					output:
-						"{ fruit: [{ category: 'fruit', name: 'apple' }, { category: 'fruit', name: 'banana' }], vegetable: [{ category: 'vegetable', name: 'carrot' }] }",
+					code: `groupBy([
+	{category: 'fruit', name: 'apple'}, 
+	{category: 'fruit', name: 'banana'}, 
+	{category: 'vegetable', name: 'carrot'}
+], item => item.category)`,
+					output: `{	fruit: [
+		{ category: 'fruit', name: 'apple' }, 
+		{ category: 'fruit', name: 'banana' }], 
+	vegetable: [{category: 'vegetable', name: 'carrot' }]
+}`,
 				},
 			],
 			props: [
@@ -490,6 +497,10 @@ export const rawData: Data = {
 				{
 					code: "isObject({})",
 					output: "true",
+				},
+				{
+					code: "isObject(`string`)",
+					output: "false",
 				},
 			],
 			props: [
@@ -927,8 +938,13 @@ export const rawData: Data = {
 			compatibility: "universal",
 			example: [
 				{
-					code: "merge({ a: 1, b: { x: 1 } }, { b: { y: 2 }, c: 3 })",
-					output: "{ a: 1, b: { x: 1, y: 2 }, c: 3 }",
+					code: `merge(
+	{a: 1, b: { x: 1 } }, 
+	{ b: { y: 2 }, 
+	c: 3 })`,
+					output: `{	a: 1, 
+	b: { x: 1, y: 2 }, 
+	c: 3 }`,
 				},
 			],
 			props: [

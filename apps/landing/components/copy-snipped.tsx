@@ -1,6 +1,11 @@
 import { copyToClipboard } from "@polgubau/utils";
 import { useState } from "react";
-export const CopySnipped = () => {
+type CopySnippedProps = {
+	text?: string;
+};
+export const CopySnipped = ({
+	text = "pnpm i @polgubau/utils",
+}: CopySnippedProps) => {
 	const [isCopied, setIsCopied] = useState(false);
 
 	const conditionalClassName = isCopied
@@ -8,7 +13,7 @@ export const CopySnipped = () => {
 		: "outline-neutral-500/50 text-white/80";
 
 	const handleCopy = () => {
-		copyToClipboard("pnpm i @polgubau/utils");
+		copyToClipboard(text);
 		setIsCopied(true);
 		setTimeout(() => setIsCopied(false), 2000);
 	};
@@ -17,9 +22,13 @@ export const CopySnipped = () => {
 		<button
 			type="button"
 			onClick={handleCopy}
-			className={`flex w-fit border-0 outline transition-all rounded-xl px-4 py-2 ${conditionalClassName} cursor-pointer`}
+			className={`w-fit grid grid-cols-[1fr_auto] items-center gap-4 border-0 outline relative transition-all rounded-xl px-4 py-2 ${conditionalClassName} cursor-pointer`}
 		>
-			<code className="not-prose">pnpm i @polgubau/utils</code>
+			<code className="not-prose">{text}</code>
+
+			<span className="text-xs text-neutral-200/60">
+				{isCopied ? "Copied!" : "Copy"}
+			</span>
 		</button>
 	);
 };
