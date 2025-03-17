@@ -2,6 +2,7 @@ import { Card } from "components/card";
 import { Content } from "components/content";
 import { CopySnipped } from "components/copy-snipped";
 import { Header } from "components/header";
+import { Links } from "components/home/links";
 import { Link } from "react-router";
 
 export function Homepage() {
@@ -10,31 +11,14 @@ export function Homepage() {
 			<Card>
 				<Header />
 				<CopySnipped />
-				<div className="flex justify-center text-sm gap-4 opacity-80">
-					<Link to="/docs" className="hover:underline">
-						Go to Docs &#8599;
-					</Link>
-				</div>
+				<Links />
 			</Card>
 
 			<Card>
 				<Content />
-				<footer className=" py-4 flex justify-center text-sm gap-4 opacity-80">
-					<Link
-						to="/docs"
-						className="hover:underline text-center bg-neutral-500/20 w-fit py-2 px-4 rounded-xl"
-					>
-						Go to Docs &#8599;
-					</Link>
-					<Link
-						target="_blank"
-						rel="noopener noreferrer"
-						to="https://github.com/PolGubau/utils"
-						className="hover:underline text-center w-fit py-2 px-4 rounded-xl"
-					>
-						Github
-					</Link>
-				</footer>
+				<div className="py-4">
+					<Links />
+				</div>
 			</Card>
 		</section>
 	);

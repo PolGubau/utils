@@ -44,7 +44,7 @@ export const ListPage = (props: ListPageProps) => {
 
 	return (
 		<section className="flex gap-[10vh] flex-col pt-20 h-full">
-			<section className="max-w-2xl w-full mx-auto">
+			<article className="max-w-2xl w-full mx-auto">
 				<Card>
 					<nav>
 						<Link
@@ -93,9 +93,9 @@ export const ListPage = (props: ListPageProps) => {
 						</label>
 					</nav>
 				</Card>
-			</section>
+			</article>
 
-			<section className="w-full max-w-2xl mx-auto ">
+			<article className="w-full max-w-2xl mx-auto ">
 				<Card>
 					{data.length > 0 ? (
 						<List data={data} />
@@ -111,7 +111,7 @@ export const ListPage = (props: ListPageProps) => {
 						</Link>
 					</nav>
 				</Card>
-			</section>
+			</article>
 		</section>
 	);
 };
