@@ -4,6 +4,8 @@ import type { Util } from "~/assets/data.types";
 
 import { formatString } from "@polgubau/utils/texts";
 import { CopySnipped } from "components/copy-snipped";
+import { dataAccess } from "data/dataAccess";
+import { Item } from "components/util-list/item";
 
 type DetailsPageProps = {
 	data: Util;
@@ -17,6 +19,7 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 		"type",
 		"lastUpdated",
 	] as const;
+	const related = dataAccess.getRelated(data.name);
 	return (
 		<section className="flex flex-col pt-20 h-full ">
 			<article className="max-w-2xl w-full mx-auto ">
@@ -145,6 +148,13 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 								))}
 							</ul>
 						</div>
+
+						<h2>Related</h2>
+						<ul className="not-prose divide-y space-y-4 divide-neutral-500/20 border-l-2 border-neutral-500/40 pl-4">
+							{related.map((item) => (
+								<Item key={item.name} data={{ item, score: 0, matches: [] }} />
+							))}
+						</ul>
 					</div>
 					<nav>
 						<Link

@@ -64,6 +64,18 @@ class DataAccess {
 
 		return filtered;
 	}
+
+	public getRelated(uName: string) {
+		const util = this.getUtilByName(uName);
+		if (!util) return [];
+		const related = this.data.utils.filter((item) => {
+			return (
+				item.name !== util.name &&
+				item.tags.some((tag) => util.tags.includes(tag))
+			);
+		});
+		return related.slice(0, 3);
+	}
 }
 
 export const dataAccess = new DataAccess();
