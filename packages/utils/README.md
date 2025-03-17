@@ -1,6 +1,14 @@
-[![Validate Build][buildImg]][buildLnk] ![Lines][testLinesImg] ![Lines][testStatementsImg] ![Lines][testFunctionsImg] ![Lines][testBranchesImg]
-
-
+![Branches](./badges/coverage-branches.svg)
+![Functions](./badges/coverage-functions.svg)
+![Lines](./badges/coverage-lines.svg)
+![Statements](./badges/coverage-statements.svg)
+![Coverage total](./badges/coverage-total.svg)
+![Last commit](https://img.shields.io/github/last-commit/PolGUbau/utils?logo=git)
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/PolGubau/utils/tree/main/packages/utils)
+[![GitHub issues](https://img.shields.io/github/issues/PolGubau/utils?logo=github&label=issues&color=2c2c32)](https://github.com/PolGubau/utils/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/PolGubau/utils?logo=github&label=pull%20requests&color=2c2c32)](https://github.com/PolGubau/utils/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/PolGubau/utils?logo=github&label=stars&color=2c2c32)](https://github.com/PolGubau/utils/stargazers)
+  
 
 # @polgubau/utils
 
@@ -107,9 +115,4 @@ Made with ❤️ by [Pol Gubau Amores](https://polgubau.com)
 
 
 
-[buildImg]:<https://github.com/PolGubau/utils/actions/workflows/validation.yaml/badge.svg>
-[buildLnk]:<https://github.com/PolGubau/utils/actions/workflows/validation.yaml>
-[testLinesImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-lines.svg>
-[testStatementsImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-statements.svg>
-[testFunctionsImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-functions.svg>
-[testBranchesImg]:<https://raw.githubusercontent.com/gist/PolGubau/b6e7abcadd55f08304a4249fe962f75c/raw/badge-branches.svg>
+ 

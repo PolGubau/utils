@@ -1,9 +1,12 @@
-name: ⚡ My ci things
+name: ⚡Badges
+on:
+  push:
+    branches:
+      - main
 
-on: [push]
 
 jobs:
-  my-workflow:
+  badges-job:
     name: 📣 Generate cool badges
     runs-on: ubuntu-latest
     defaults:
