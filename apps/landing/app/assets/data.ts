@@ -67,6 +67,42 @@ export const rawData: Data = {
 			notes: "The function assumes min ≤ max.",
 		},
 		{
+			name: "isFalsy",
+			description: "Checks if the value is falsy.",
+			category: "comparators",
+			tags: ["validation", "falsy", "boolean"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "isFalsy(0)",
+					output: "true",
+				},
+				{
+					code: "isFalsy('Hello')",
+					output: "false",
+				},
+			],
+			props: [
+				{
+					name: "value",
+					type: "any",
+					description: "The value to check.",
+				},
+			],
+			return: {
+				type: "boolean",
+				description: "Returns `true` if the value is falsy, otherwise `false`.",
+			},
+			error: null,
+			notes:
+				"Falsy values include: `false`, `null`, `undefined`, `0`, `NaN`, and an empty string.",
+		},
+
+		{
 			name: "getRandomArrayItem",
 			description: "Get a random item from a given array.",
 			category: "random",
@@ -75,7 +111,7 @@ export const rawData: Data = {
 			since: "1.0.4",
 			lastUpdated: "2025-03-17",
 			type: "sync",
-			compatibility: "browser, server",
+			compatibility: "universal",
 			example: [
 				{
 					code: "getRandomArrayItem([1, 2, 3, 4, 5])",
@@ -189,7 +225,7 @@ export const rawData: Data = {
 			since: "1.0.4",
 			lastUpdated: "2025-03-17",
 			type: "sync",
-			compatibility: "browser, server",
+			compatibility: "universal",
 			example: [
 				{
 					code: "slugify('Hello World!')",
@@ -602,7 +638,7 @@ export const rawData: Data = {
 			since: "1.0.0",
 			lastUpdated: "2025-03-15",
 			type: "sync",
-			compatibility: "client-side",
+			compatibility: "browser",
 			example: [
 				{
 					code: "isClient()",
@@ -741,7 +777,7 @@ export const rawData: Data = {
 			since: "1.0.0",
 			lastUpdated: "2025-03-15",
 			type: "async",
-			compatibility: "client-side",
+			compatibility: "browser",
 			example: [
 				{
 					code: "await copyToClipboard('Hello, world!')",
@@ -767,15 +803,55 @@ export const rawData: Data = {
 				"This function uses the `navigator.clipboard.writeText` API to copy text to the clipboard.",
 		},
 		{
+			name: "daysBetween",
+			description: "Calculates the number of days between two dates.",
+			category: "dates",
+			tags: ["dates", "utilities", "date manipulation"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "daysBetween(new Date('2025-03-17'), new Date('2025-03-22'))",
+					output: "5",
+				},
+				{
+					code: "daysBetween(new Date('2025-03-17'), new Date('2025-03-14'))",
+					output: "3",
+				},
+			],
+			props: [
+				{
+					name: "date1",
+					type: "Date",
+					description: "The first date to compare.",
+				},
+				{
+					name: "date2",
+					type: "Date",
+					description: "The second date to compare.",
+				},
+			],
+			return: {
+				type: "number",
+				description: "The absolute number of days between the two dates.",
+			},
+			error: null,
+			notes:
+				"This function calculates the absolute difference, so it does not matter which date is earlier.",
+		},
+		{
 			name: "encrypt",
 			description: "Encrypts a text using AES-GCM encryption algorithm.",
 			category: "functions",
 			tags: ["encryption", "AES-GCM", "security"],
 			author: "PolGubau",
-			since: "1.0.0",
+			since: "1.0.1",
 			lastUpdated: "2025-03-15",
 			type: "async",
-			compatibility: "client-side",
+			compatibility: "browser",
 			example: [
 				{
 					code: "await encrypt('Hello, world!', 'your-32-character-key')",
@@ -817,7 +893,7 @@ export const rawData: Data = {
 			since: "1.0.0",
 			lastUpdated: "2025-03-15",
 			type: "async",
-			compatibility: "client-side",
+			compatibility: "browser",
 			example: [
 				{
 					code: "await decrypt('encryptedTextInBase64', 'your-32-character-key')",
@@ -925,7 +1001,78 @@ export const rawData: Data = {
 				"The returned function will delay the invocation of `fn` until after the specified `delay` period.",
 		},
 		{
-			name: "generateUUID",
+			name: "getBrowserInfo",
+			description:
+				"Returns information about the user's browser, including name, version, and user agent string.",
+			category: "functions",
+			tags: ["browser", "user agent", "utilities"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "browser",
+			example: [
+				{
+					code: "getBrowserInfo()",
+					output:
+						'{ "name": "Chrome", "version": "112.0.0.0", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36" }',
+				},
+			],
+			props: [],
+			return: {
+				type: "{ name: string; version: string; userAgent: string }",
+				description:
+					"An object containing the browser's name, version, and the full user agent string.",
+			},
+			error: null,
+			notes:
+				"This function works only in the browser environment where the `navigator.userAgent` property is available.",
+		},
+		{
+			name: "pickRandom",
+			description:
+				"Pick a specified number of random items from an array without repeating.",
+			category: "random",
+			tags: ["random", "array", "utilities"],
+			author: "Polgubau",
+			since: "1.0.4",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "pickRandom([1, 2, 3, 4, 5], 3)",
+					output:
+						"[2, 4, 5] // (random items, could be any combination from the array)",
+				},
+				{
+					code: "pickRandom(['apple', 'banana', 'cherry', 'date'], 2)",
+					output:
+						'["banana", "cherry"] // (random items, could be any combination from the array)',
+				},
+			],
+			props: [
+				{
+					name: "array",
+					type: "T[]",
+					description: "The input array to pick random items from.",
+				},
+				{
+					name: "count",
+					type: "number",
+					description: "The number of random items to pick.",
+				},
+			],
+			return: {
+				type: "T[]",
+				description: "An array containing the randomly selected items.",
+			},
+			error: null,
+			notes:
+				"This function returns an empty array if the count is less than or equal to zero, or if the input array is empty.",
+		},
+		{
+			name: "uuid",
 			description: "Generates a random UUID (Universally Unique Identifier).",
 			category: "functions",
 			tags: ["UUID", "identifier", "random"],
@@ -936,7 +1083,7 @@ export const rawData: Data = {
 			compatibility: "universal",
 			example: [
 				{
-					code: "generateUUID()",
+					code: "uuid()",
 					output: "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",
 				},
 			],

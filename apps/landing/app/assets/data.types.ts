@@ -12,7 +12,10 @@ export const categories = [
 	"dates",
 ] as const;
 
+export const compatibilities = ["browser", "universal"] as const;
+
 export type Category = (typeof categories)[number];
+export type Compatibility = (typeof compatibilities)[number];
 export type CategoryWithAll = Category | "all";
 export interface Data {
 	name: string;
@@ -29,7 +32,7 @@ export interface Util {
 	since: string;
 	lastUpdated: string;
 	type: string;
-	compatibility: string;
+	compatibility: Compatibility;
 	example: Example[];
 	props: Prop[];
 	return: Return;

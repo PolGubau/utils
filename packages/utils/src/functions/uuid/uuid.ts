@@ -1,4 +1,4 @@
-export const generateUUID = (limit?: number): string => {
+export const uuid = (limit?: number): string => {
   // if limit is 0, return an empty string (why would you do this?)
   if (limit === 0) {
     return "";
