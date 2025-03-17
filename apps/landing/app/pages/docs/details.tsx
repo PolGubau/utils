@@ -14,10 +14,10 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 	const headerTableKeys: ReadonlyArray<keyof Util> = [
 		"category",
 		"compatibility",
-		"since",
-		"author",
 		"type",
 		"lastUpdated",
+		"since",
+		"author",
 	] as const;
 	const related = dataAccess.getRelated(data.name);
 	return (
