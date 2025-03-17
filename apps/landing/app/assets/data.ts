@@ -30,7 +30,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function requires a browser environment with a valid document object.",
-			related: ["setDocumentDirection"],
 		},
 		{
 			name: "chunk",
@@ -71,7 +70,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"If the array length is not a multiple of size, the last chunk may be smaller.",
-			related: [],
 		},
 		{
 			name: "groupBy",
@@ -121,7 +119,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "Keys must be a valid property key (string, number, or symbol).",
-			related: [],
 		},
 		{
 			name: "limitArray",
@@ -164,7 +161,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"If the array length is less than or equal to the limit, `remaining` will be 0.",
-			related: [],
 		},
 		{
 			name: "remove",
@@ -207,7 +203,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"If the index is out of bounds, the function returns the original array. The array is mutated.",
-			related: [],
 		},
 		{
 			name: "shuffle",
@@ -242,7 +237,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The function uses the Fisher-Yates algorithm to shuffle the elements in place. It does not mutate the original array.",
-			related: [],
 		},
 		{
 			name: "first",
@@ -276,7 +270,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "Returns `undefined` if the array is empty.",
-			related: [],
 		},
 		{
 			name: "last",
@@ -310,7 +303,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "Returns `undefined` if the array is empty.",
-			related: [],
 		},
 		{
 			name: "removeFirst",
@@ -343,7 +335,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "The original array is not mutated.",
-			related: [],
 		},
 		{
 			name: "removeLast",
@@ -376,7 +367,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "The original array is not mutated.",
-			related: [],
 		},
 		{
 			name: "isClient",
@@ -404,7 +394,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function checks for the presence of `window` to determine if it's a browser environment.",
-			related: [],
 		},
 		{
 			name: "isDeepKey",
@@ -439,7 +428,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"Deep keys are typically used for nested object properties, e.g., 'a.b' or 'a[b]'.",
-			related: [],
 		},
 		{
 			name: "isEqual",
@@ -481,7 +469,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"Arrays are considered equal if they have the same length and corresponding elements are identical.",
-			related: [],
 		},
 		{
 			name: "isObject",
@@ -520,7 +507,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"A plain object is one that is created using the `Object` constructor, not an instance of a class.",
-			related: [],
 		},
 		{
 			name: "copyToClipboard",
@@ -555,7 +541,6 @@ export const rawData: Data = {
 			error: "Warning if clipboard is not supported.",
 			notes:
 				"This function uses the `navigator.clipboard.writeText` API to copy text to the clipboard.",
-			related: [],
 		},
 		{
 			name: "encrypt",
@@ -597,7 +582,6 @@ export const rawData: Data = {
 			error: "Throws an error if the key is less than 32 characters.",
 			notes:
 				"This function uses the AES-GCM encryption algorithm for encrypting text.",
-			related: [],
 		},
 		{
 			name: "decrypt",
@@ -640,7 +624,6 @@ export const rawData: Data = {
 			error: "Throws an error if the key is less than 32 characters.",
 			notes:
 				"This function uses the AES-GCM decryption algorithm for decrypting the text.",
-			related: [],
 		},
 		{
 			name: "sleep",
@@ -675,7 +658,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The `ms` parameter can be either a number (in milliseconds) or a string with the format `${number}ms`.",
-			related: [],
 		},
 		{
 			name: "debounce",
@@ -717,7 +699,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The returned function will delay the invocation of `fn` until after the specified `delay` period.",
-			related: [],
 		},
 		{
 			name: "generateUUID",
@@ -750,7 +731,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "The UUID follows the version 4 format, which uses random values.",
-			related: [],
 		},
 		{
 			name: "fuzzyFinder",
@@ -803,7 +783,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The function uses a recursive approach with memoization to efficiently calculate the match score. The score is influenced by several factors such as continuous matches, new word breaks, and character case differences.",
-			related: [],
 		},
 		{
 			name: "clamp",
@@ -852,7 +831,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"If only one bound is provided, it returns the minimum of the value and the bound.",
-			related: [],
 		},
 		{
 			name: "cloneDeep",
@@ -887,7 +865,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The function recursively clones the object and its nested properties. If the source is not an object, it is returned as is.",
-			related: [],
 		},
 		{
 			name: "getMainField",
@@ -923,7 +900,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"The function searches for the first label in the `DEFAULT_KEYS` array that exists in the item object. If no label is found, the first key-value pair from the item object is returned instead.",
-			related: [],
 		},
 		{
 			name: "merge",
@@ -973,7 +949,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function mutates the target object. If a property in the source is undefined, it does not overwrite a defined property in the target.",
-			related: [],
 		},
 		{
 			name: "isObjectLike",
@@ -1008,7 +983,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function is used internally to determine whether the target or source values in the `merge` function should be deeply merged or simply replaced.",
-			related: [],
 		},
 		{
 			name: "mergeDeep",
@@ -1058,7 +1032,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function creates a new object by merging and deep copying properties from the source object into the target object. It performs a deep merge, meaning nested objects are merged recursively. If a nested object is found in both the target and source, it will be recursively merged. If the source object is empty, a deep copy of the target is returned.",
-			related: ["cloneDeep", "merge"],
 		},
 		{
 			name: "omit",
@@ -1099,7 +1072,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function creates a shallow copy of the provided object and deletes the properties specified by the `keys` array. It does not modify the original object. If a key is not present in the object, it is simply ignored without causing any errors.",
-			related: ["pick"],
 		},
 		{
 			name: "toPath",
@@ -1141,7 +1113,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function parses a deep key string and splits it into its respective path segments. It handles various cases, such as quoted segments, bracket notation, and escaped characters.",
-			related: ["get"],
 		},
 		{
 			name: "parseJSON",
@@ -1185,7 +1156,6 @@ export const rawData: Data = {
 			error: "Thrown if parsing the value fails.",
 			notes:
 				"This function safely parses a JSON string. It returns 'undefined' for null or non-parsable values, and throws an error when parsing fails.",
-			related: ["saveParseJson", "stringify"],
 		},
 		{
 			name: "saveParseJson",
@@ -1225,14 +1195,13 @@ export const rawData: Data = {
 				"No error is thrown, it silently returns 'undefined' in case of failure.",
 			notes:
 				"This function parses a JSON string and returns 'undefined' for null or non-parsable values, without throwing errors.",
-			related: ["parseJSON", "stringify"],
 		},
 		{
-			name: "getLocalStorage",
+			name: "getTimeAgo",
 			description:
-				"Retrieves a value from localStorage, or sets it if not found.",
-			category: "storage",
-			tags: ["localStorage", "get", "set", "storage"],
+				"Returns a human-readable relative time string based on a given timestamp.",
+			category: "dates",
+			tags: ["time", "date", "relativeTime", "intl", "locale"],
 			author: "Pol Gubau",
 			since: "1.0.0",
 			lastUpdated: "2025-03-15",
@@ -1240,231 +1209,42 @@ export const rawData: Data = {
 			compatibility: "universal",
 			example: [
 				{
-					code: "getLocalStorage('userSettings', { theme: 'dark' })",
-					output: "{ theme: 'dark' }",
+					code: "getTimeAgo(1616161600000)",
+					output: "2 days ago",
+				},
+				{
+					code: "getTimeAgo(1616161600000, { locale: 'es' })",
+					output: "hace 2 días",
 				},
 			],
 			props: [
 				{
-					name: "key",
-					type: "string",
-					default: null,
-					required: true,
-					description:
-						"The key used to store and retrieve the value in localStorage.",
-				},
-				{
-					name: "initialValue",
-					type: "unknown",
-					required: true,
-					default: null,
-					description:
-						"The value to set in localStorage if no value is found for the given key.",
-				},
-			],
-			return: {
-				type: "unknown",
-				description:
-					"Returns the value from localStorage or the provided initialValue if not found.",
-			},
-			error: null,
-			notes:
-				"This function automatically sets the value in localStorage if it does not exist already.",
-			related: ["setToLocalStorage", "removeFromLocalStorage"],
-		},
-		{
-			name: "setToLocalStorage",
-			description: "Sets a value in localStorage for the given key.",
-			category: "storage",
-			tags: ["localStorage", "set", "storage"],
-			author: "Pol Gubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "setToLocalStorage('userSettings', { theme: 'dark' })",
-					output: "void",
-				},
-			],
-			props: [
-				{
-					name: "key",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The key used to store the value in localStorage.",
-				},
-				{
-					name: "value",
-					type: "unknown",
-					default: null,
-					required: true,
-					description: "The value to store in localStorage.",
-				},
-			],
-			return: {
-				type: "void",
-				description: "This function does not return anything.",
-			},
-			error: null,
-			notes:
-				"If the provided value is an object, it will be stringified before storing.",
-			related: ["getLocalStorage", "removeFromLocalStorage"],
-		},
-		{
-			name: "removeFromLocalStorage",
-			description: "Removes a value from localStorage by key.",
-			category: "storage",
-			tags: ["localStorage", "remove", "storage"],
-			author: "Pol Gubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "removeFromLocalStorage('userSettings')",
-					output: "void",
-				},
-			],
-			props: [
-				{
-					name: "key",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The key of the value to remove from localStorage.",
-				},
-			],
-			return: {
-				type: "void",
-				description: "This function does not return anything.",
-			},
-			error: null,
-			notes:
-				"This function simply removes the item corresponding to the given key from localStorage.",
-			related: ["getLocalStorage", "setToLocalStorage"],
-		},
-		{
-			name: "setCookie",
-			description:
-				"Sets a cookie with the specified name, value, and optional expiration in days.",
-			category: "storage",
-			tags: ["cookie", "set", "storage", "HTTP"],
-			author: "Pol Gubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "setCookie('userTheme', 'dark', 7)",
-					output: "void",
-				},
-			],
-			props: [
-				{
-					name: "name",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The name of the cookie to be set.",
-				},
-				{
-					name: "value",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The value to be stored in the cookie.",
-				},
-				{
-					name: "days",
+					name: "timestamp",
 					type: "number",
 					default: null,
+					required: true,
+					description:
+						"The timestamp to compare the current time against, in milliseconds.",
+				},
+				{
+					name: "options",
+					type: "GetTimeAgoOptions",
+					default: "{ locale: undefined }",
 					required: false,
-					description: "Optional number of days until the cookie expires.",
+					description:
+						"Optional settings, including the locale for formatting the relative time.",
 				},
 			],
 			return: {
-				type: "void",
-				description: "This function does not return anything.",
-			},
-			error: null,
-			notes:
-				"If the 'days' parameter is provided, the cookie will expire after the specified number of days.",
-			related: ["getCookie", "deleteCookie"],
-		},
-		{
-			name: "getCookie",
-			description: "Retrieves the value of a cookie by its name.",
-			category: "storage",
-			tags: ["cookie", "get", "storage", "HTTP"],
-			author: "Pol Gubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "getCookie('userTheme')",
-					output: "'dark'",
-				},
-			],
-			props: [
-				{
-					name: "name",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The name of the cookie to retrieve.",
-				},
-			],
-			return: {
-				type: "string | undefined",
+				type: "string",
 				description:
-					"Returns the value of the cookie if found, or undefined if not found.",
-			},
-			error: null,
-			notes: "Returns undefined if the cookie does not exist.",
-			related: ["setCookie", "deleteCookie"],
-		},
-		{
-			name: "deleteCookie",
-			description:
-				"Deletes a cookie by setting its expiration date to the past.",
-			category: "storage",
-			tags: ["cookie", "delete", "storage", "HTTP"],
-			author: "Pol Gubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "deleteCookie('userTheme')",
-					output: "void",
-				},
-			],
-			props: [
-				{
-					name: "name",
-					type: "string",
-					default: null,
-					required: true,
-					description: "The name of the cookie to delete.",
-				},
-			],
-			return: {
-				type: "void",
-				description: "This function does not return anything.",
+					"A human-readable string indicating the relative time (e.g., '2 days ago').",
 			},
 			error: null,
 			notes:
-				"The cookie is deleted by setting its expiration date to a past date.",
-			related: ["setCookie", "getCookie"],
+				"This function computes the difference between the current time and the provided timestamp, and returns a formatted string such as 'X days ago', 'X hours ago', or 'X minutes ago', based on the elapsed time.",
 		},
+
 		{
 			name: "px",
 			description: "Converts the specified number to a pixel string.",
@@ -1502,7 +1282,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"If the input is a string or number, it will be converted to a string and suffixed with 'px'.",
-			related: [],
 		},
 		{
 			name: "toCamelCase",
@@ -1540,7 +1319,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function converts strings with underscores or hyphens into camel case format.",
-			related: [],
 		},
 		{
 			name: "toTitleCase",
@@ -1574,7 +1352,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function capitalizes the first letter of each word in the string.",
-			related: [],
 		},
 		{
 			name: "toKebabCase",
@@ -1607,7 +1384,6 @@ export const rawData: Data = {
 			},
 			error: null,
 			notes: "This function converts camelCase strings into kebab-case format.",
-			related: [],
 		},
 		{
 			name: "toUpperCase",
@@ -1641,7 +1417,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function converts all characters of the string to uppercase.",
-			related: [],
 		},
 		{
 			name: "toLowerCase",
@@ -1675,7 +1450,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function converts all characters of the string to lowercase.",
-			related: [],
 		},
 		{
 			name: "capitalize",
@@ -1709,7 +1483,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function only capitalizes the first letter of the string, leaving the rest intact.",
-			related: [],
 		},
 		{
 			name: "removeWhitespace",
@@ -1743,7 +1516,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function removes all types of whitespace characters (spaces, tabs, etc.) from the string.",
-			related: [],
 		},
 		{
 			name: "reverseString",
@@ -1777,7 +1549,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function reverses the order of the characters in the string.",
-			related: [],
 		},
 		{
 			name: "truncateString",
@@ -1825,7 +1596,6 @@ export const rawData: Data = {
 			error: null,
 			notes:
 				"This function truncates the string to a specified length, appending a suffix if necessary.",
-			related: [],
 		},
 	],
 };

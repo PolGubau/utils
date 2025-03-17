@@ -13,7 +13,7 @@ export function parseJSON<T>(value: string | null): T | undefined {
 		if (!value) {
 			return undefined;
 		}
-		return JSON.parse(value ?? "");
+		return JSON.parse(value);
 	} catch {
 		console.error(errorLabel, { value });
 		throw new Error(errorLabel + value);
@@ -26,21 +26,7 @@ export function saveParseJson<T>(value: string | null): T | undefined {
 		if (!value) {
 			return undefined;
 		}
-		return JSON.parse(value ?? "");
-	} catch {
-		console.error(errorLabel, { value });
-		return undefined;
-	}
-}
-
-/** stringify
- * @param value - T
- * @returns string | undefined
- */
-
-export function stringify<T>(value: T): string | undefined {
-	try {
-		return JSON.stringify(value);
+		return JSON.parse(value);
 	} catch {
 		console.error(errorLabel, { value });
 		return undefined;
@@ -50,5 +36,4 @@ export function stringify<T>(value: T): string | undefined {
 export const json = {
 	saveParse: saveParseJson,
 	parse: parseJSON,
-	stringify,
 };

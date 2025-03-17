@@ -8,6 +8,7 @@ export const categories = [
 	"comparators",
 	"parsers",
 	"numbers",
+	"dates",
 ] as const;
 
 export type Category = (typeof categories)[number];
@@ -33,7 +34,6 @@ export interface Util {
 	return: Return;
 	error: null | string;
 	notes: string;
-	related?: string[];
 }
 
 interface Prop {

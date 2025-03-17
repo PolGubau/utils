@@ -40,25 +40,31 @@
  */
 
 export function isObjectLike(value: unknown): value is object {
-  return typeof value === "object" && value !== null;
+	return typeof value === "object" && value !== null;
 }
 export function merge<T, S>(target: T, source: S): T & S;
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export function merge(target: any, source: any) {
-  const sourceKeys = Object.keys(source);
+	const sourceKeys = Object.keys(source);
 
-  for (const key of sourceKeys) {
-    const sourceValue = source[key];
-    const targetValue = target[key];
+	for (const key of sourceKeys) {
+		const sourceValue = source[key];
+		const targetValue = target[key];
 
-    if (Array.isArray(sourceValue)) {
-      target[key] = merge(targetValue ?? [], sourceValue);
-    } else if (isObjectLike(targetValue) && isObjectLike(sourceValue)) {
-      target[key] = merge(targetValue ?? {}, sourceValue);
-    } else if (targetValue === undefined || sourceValue !== undefined) {
-      target[key] = sourceValue;
-    }
-  }
+		if (Array.isArray(sourceValue)) {
+			// Si sourceValue es un array, fusionamos los arrays
+			// Se reemplaza el array del target por el del sourceValue
+			// o si no existe targetValue, se inicializa como un array vacío.
+			target[key] = merge(targetValue ?? [], sourceValue);
+		} else if (isObjectLike(targetValue) && isObjectLike(sourceValue)) {
+			// Si ambos valores son objetos, fusionamos profundamente
+			// Si targetValue es undefined, lo inicializamos como un objeto vacío
+			target[key] = merge(targetValue, sourceValue);
+		} else if (targetValue === undefined || sourceValue !== undefined) {
+			// Si targetValue es undefined o sourceValue no es undefined, se asigna el valor del source
+			target[key] = sourceValue;
+		}
+	}
 
-  return target;
+	return target;
 }

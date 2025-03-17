@@ -90,6 +90,7 @@
     "pack": "npm pack --dry-run",
     "publish": "npm publish --access public",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {},
