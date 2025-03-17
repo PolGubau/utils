@@ -27,10 +27,10 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/esm/index.mjs",
-      "require": "./dist/index.js",
+      "browser": "./dist/browser/utils.production.min.mjs",
       "types": "./dist/esm/index.d.mts",
-      "browser": "./dist/browser/utils.production.min.mjs"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/index.js"
     },
     "./storage": {
       "import": "./dist/esm/storage/index.mjs",
