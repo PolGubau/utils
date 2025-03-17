@@ -36,7 +36,7 @@ export const DetailsPage = ({ data }: DetailsPageProps) => {
 						<ul className="not-prose">
 							{data.example.map((example) => (
 								<li key={example.code}>
-									<pre className="rounded-lg p-2 bg-neutral-500/20 text-sm font-mono">
+									<pre className="rounded-lg p-2 bg-neutral-500/20 text-sm font-mono whitespace-pre-wrap">
 										<code>{example.code}</code>
 									</pre>
 									<span className="text-xs pl-4">Output: {example.output}</span>
