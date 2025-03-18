@@ -69,7 +69,7 @@ export const rawData: Data = {
 		{
 			name: "isFalsy",
 			description: "Checks if the value is falsy.",
-			category: "comparators",
+			category: "validations",
 			tags: ["validation", "falsy", "boolean"],
 			author: "Polgubau",
 			since: "1.0.0",
@@ -84,6 +84,14 @@ export const rawData: Data = {
 				{
 					code: "isFalsy('Hello')",
 					output: "false",
+				},
+				{
+					code: "isFalsy(false)",
+					output: "true",
+				},
+				{
+					code: "isFalsy('')",
+					output: "true",
 				},
 			],
 			props: [
@@ -101,7 +109,78 @@ export const rawData: Data = {
 			notes:
 				"Falsy values include: `false`, `null`, `undefined`, `0`, `NaN`, and an empty string.",
 		},
+		{
+			name: "hasValue",
+			description: "Checks if a value is truthy, meaning it is not falsy.",
+			category: "validations",
+			tags: ["validation", "truthy", "boolean"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "hasValue('Hello')",
+					output: "true",
+				},
+				{
+					code: "hasValue(null)",
+					output: "false",
+				},
+			],
+			props: [
+				{
+					name: "value",
+					type: "any",
+					description: "The value to check.",
+				},
+			],
+			return: {
+				type: "boolean",
+				description:
+					"Returns `true` if the value is truthy, otherwise `false`.",
+			},
+			error: null,
+			notes:
+				"Truthy values are those that are not falsy, like `1`, `'Hello'`, or `{}`.",
+		},
 
+		{
+			name: "isEmptyArray",
+			description: "Checks if an array is empty.",
+			category: "validations",
+			tags: ["validation", "array", "empty"],
+			author: "Polgubau",
+			since: "1.0.0",
+			lastUpdated: "2025-03-17",
+			type: "sync",
+			compatibility: "universal",
+			example: [
+				{
+					code: "isEmptyArray([])",
+					output: "true",
+				},
+				{
+					code: "isEmptyArray([1, 2, 3])",
+					output: "false",
+				},
+			],
+			props: [
+				{
+					name: "arr",
+					type: "any[]",
+					description: "The array to check.",
+				},
+			],
+			return: {
+				type: "boolean",
+				description: "Returns `true` if the array is empty, otherwise `false`.",
+			},
+			error: null,
+			notes:
+				"The function checks if the value is actually an array and if it is empty.",
+		},
 		{
 			name: "getRandomArrayItem",
 			description: "Get a random item from a given array.",
@@ -632,7 +711,7 @@ export const rawData: Data = {
 			name: "isClient",
 			description:
 				"Checks if the code is running in the client-side (browser).",
-			category: "comparators",
+			category: "validations",
 			tags: ["client", "browser", "environment"],
 			author: "PolGubau",
 			since: "1.0.0",
@@ -659,7 +738,7 @@ export const rawData: Data = {
 			name: "isDeepKey",
 			description:
 				"Checks if a given key is a deep key, containing a dot (.) or square brackets with a property accessor.",
-			category: "comparators",
+			category: "validations",
 			tags: ["deep key", "key", "property"],
 			author: "PolGubau",
 			since: "1.0.0",
@@ -693,7 +772,7 @@ export const rawData: Data = {
 			name: "isEqual",
 			description:
 				"Compares two arrays for equality, checking if they have the same elements in the same order.",
-			category: "comparators",
+			category: "validations",
 			tags: ["array", "comparison", "equality"],
 			author: "PolGubau",
 			since: "1.0.0",
@@ -733,7 +812,7 @@ export const rawData: Data = {
 		{
 			name: "isObject",
 			description: "Checks if the provided parameter is a plain object.",
-			category: "comparators",
+			category: "validations",
 			tags: ["object", "type checking"],
 			author: "PolGubau",
 			since: "1.0.0",
@@ -1103,58 +1182,7 @@ export const rawData: Data = {
 			error: null,
 			notes: "The UUID follows the version 4 format, which uses random values.",
 		},
-		{
-			name: "fuzzyFinder",
-			description:
-				"Performs a fuzzy search to match an abbreviation or query string to a given string, returning a score that reflects the closeness of the match.",
-			category: "functions",
-			tags: ["search", "fuzzy", "match", "string"],
-			author: "PolGubau",
-			since: "1.0.0",
-			lastUpdated: "2025-03-15",
-			type: "sync",
-			compatibility: "universal",
-			example: [
-				{
-					code: "fuzzyFinder('html5', 'html', ['html', 'html5', 'hypertext'])",
-					output: "0.9",
-				},
-			],
-			props: [
-				{
-					name: "string",
-					type: "string",
-					default: null,
-					required: true,
-					description:
-						"The target string that will be compared to the abbreviation.",
-				},
-				{
-					name: "abbreviation",
-					type: "string",
-					default: null,
-					required: true,
-					description:
-						"The abbreviation or query string to match against the `string`.",
-				},
-				{
-					name: "aliases",
-					type: "array of strings",
-					default: "[]",
-					required: false,
-					description:
-						"An optional array of additional strings (aliases) that will also be matched with the abbreviation.",
-				},
-			],
-			return: {
-				type: "number",
-				description:
-					"Returns a number representing the score of the fuzzy match, with higher values indicating better matches.",
-			},
-			error: null,
-			notes:
-				"The function uses a recursive approach with memoization to efficiently calculate the match score. The score is influenced by several factors such as continuous matches, new word breaks, and character case differences.",
-		},
+
 		{
 			name: "clamp",
 			description:

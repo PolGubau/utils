@@ -15,7 +15,7 @@ describe("isFalsy", () => {
 	});
 
 	it("should return true for 0n", () => {
-        // @ts-ignore
+		// @ts-ignore
 		expect(isFalsy(0n)).toBe(true);
 	});
 
@@ -42,10 +42,10 @@ describe("isFalsy", () => {
 	it("should return false for non-zero numbers", () => {
 		expect(isFalsy(1)).toBe(false);
 		expect(isFalsy(-1)).toBe(false);
-        // @ts-ignore
-        expect(isFalsy(1n)).toBe(false);
-        
-        // @ts-ignore
+		// @ts-ignore
+		expect(isFalsy(1n)).toBe(false);
+
+		// @ts-ignore
 		expect(isFalsy(-1n)).toBe(false);
 	});
 

@@ -5,7 +5,7 @@ export const categories = [
 	"arrays",
 	"objects",
 	"accessibility",
-	"comparators",
+	"validations",
 	"parsers",
 	"numbers",
 	"random",

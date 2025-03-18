@@ -1,4 +1,4 @@
-import { isObject } from "../../comparators";
+import { isObject } from "../../validations";
 
 /**
  * Deep clone an object
@@ -7,15 +7,15 @@ import { isObject } from "../../comparators";
  * @returns <T> - A deep clone of the source object
  */
 export function cloneDeep<T>(source: T): T {
-  if (!isObject(source)) {
-    return source;
-  }
+	if (!isObject(source)) {
+		return source;
+	}
 
-  const output: Record<string, unknown> = {};
+	const output: Record<string, unknown> = {};
 
-  for (const key in source) {
-    output[key] = cloneDeep(source[key]);
-  }
+	for (const key in source) {
+		output[key] = cloneDeep(source[key]);
+	}
 
-  return output as T;
+	return output as T;
 }
