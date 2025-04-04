@@ -14,8 +14,8 @@ export const Content = () => {
 			</p>
 			<p>
 				<strong>@polgubau/utils</strong> is a lightweight utility library
-				designed to simplify common JavaScript and TypeScript tasks. It's
-				<strong>modular</strong>, <strong>framework-agnostic</strong>,
+				designed to simplify common JavaScript and TypeScript tasks. It's{" "}
+				<strong>modular</strong>, <strong>framework-agnostic</strong>,{" "}
 				<strong>tree-shakable</strong>, and optimized for performance.
 			</p>
 			<h3>What this is NOT ⚠️</h3>

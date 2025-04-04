@@ -68,6 +68,10 @@
     "./texts": {
       "import": "./dist/esm/texts/index.mjs",
       "require": "./dist/texts/index.js"
+    },
+    "./dates": {
+      "import": "./dist/esm/dates/index.mjs",
+      "require": "./dist/dates/index.js"
     }
   },
   "main": "./dist/index.js",

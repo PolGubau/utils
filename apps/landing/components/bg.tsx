@@ -1,3 +1,4 @@
+"use client";
 import { Renderer, Program, Mesh, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
 
@@ -121,116 +122,118 @@ void main() {
 `;
 
 export function Background({
-	spinRotation = -2.0,
-	spinSpeed = 2.0,
-	offset = [0.0, 0.0],
-	color1 = "#222",
-	color2 = "#900",
-	color3 = "#444",
-	contrast = 4,
-	lighting = 0.4,
-	spinAmount = 0.15,
-	pixelFilter = 2000.0,
-	spinEase = 1.3,
-	isRotate = false,
-	mouseInteraction = false,
-}: BackgroundProps) {
-	const containerRef = useRef<HTMLDivElement>(null);
+		spinRotation = -2.0,
+		spinSpeed = 2.0,
+		offset = [0.0, 0.0],
+		color1 = "#946d00",
+		color2 = "#ddd",
+		color3 = "#aaa",
+		contrast = 15,
+		lighting = 0.4,
+		spinAmount = 0.14,
+		pixelFilter = 50000,
+		spinEase = 1.4,
+		isRotate = false,
+		mouseInteraction = false,
+	}: BackgroundProps) {
+		const containerRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		if (!containerRef.current) return;
-		const container = containerRef.current;
-		const renderer = new Renderer();
-		const gl = renderer.gl;
-		gl.clearColor(0, 0, 0, 1); // Set the clear color to black, fully opaque
+		useEffect(() => {
+			if (!containerRef.current) return;
+			const container = containerRef.current;
+			const renderer = new Renderer();
+			const gl = renderer.gl;
+			gl.clearColor(0, 0, 0, 1); // Set the clear color to black, fully opaque
 
-		// biome-ignore lint/style/useConst: <explanation>
-		let program: Program;
+			// biome-ignore lint/style/useConst: <explanation>
+			let program: Program;
 
-		function resize() {
-			renderer.setSize(container.offsetWidth, container.offsetHeight);
-			if (program) {
-				program.uniforms.iResolution.value = [
-					gl.canvas.width,
-					gl.canvas.height,
-					gl.canvas.width / gl.canvas.height,
-				];
-			}
-		}
-		window.addEventListener("resize", resize);
-		resize();
-
-		const geometry = new Triangle(gl);
-		program = new Program(gl, {
-			vertex: vertexShader,
-			fragment: fragmentShader,
-			uniforms: {
-				iTime: { value: 0 },
-				iResolution: {
-					value: [
+			function resize() {
+				renderer.setSize(container.offsetWidth, container.offsetHeight);
+				if (program) {
+					program.uniforms.iResolution.value = [
 						gl.canvas.width,
 						gl.canvas.height,
 						gl.canvas.width / gl.canvas.height,
-					],
+					];
+				}
+			}
+			window.addEventListener("resize", resize);
+			resize();
+
+			const geometry = new Triangle(gl);
+			program = new Program(gl, {
+				vertex: vertexShader,
+				fragment: fragmentShader,
+				uniforms: {
+					iTime: { value: 0 },
+					iResolution: {
+						value: [
+							gl.canvas.width,
+							gl.canvas.height,
+							gl.canvas.width / gl.canvas.height,
+						],
+					},
+					uSpinRotation: { value: spinRotation },
+					uSpinSpeed: { value: spinSpeed },
+					uOffset: { value: offset },
+					uColor1: { value: hexToVec4(color1) },
+					uColor2: { value: hexToVec4(color2) },
+					uColor3: { value: hexToVec4(color3) },
+					uContrast: { value: contrast },
+					uLighting: { value: lighting },
+					uSpinAmount: { value: spinAmount },
+					uPixelFilter: { value: pixelFilter },
+					uSpinEase: { value: spinEase },
+					uIsRotate: { value: isRotate },
+					uMouse: { value: [0.5, 0.5] },
 				},
-				uSpinRotation: { value: spinRotation },
-				uSpinSpeed: { value: spinSpeed },
-				uOffset: { value: offset },
-				uColor1: { value: hexToVec4(color1) },
-				uColor2: { value: hexToVec4(color2) },
-				uColor3: { value: hexToVec4(color3) },
-				uContrast: { value: contrast },
-				uLighting: { value: lighting },
-				uSpinAmount: { value: spinAmount },
-				uPixelFilter: { value: pixelFilter },
-				uSpinEase: { value: spinEase },
-				uIsRotate: { value: isRotate },
-				uMouse: { value: [0.5, 0.5] },
-			},
-		});
+			});
 
-		const mesh = new Mesh(gl, { geometry, program });
-		let animationFrameId: number;
+			const mesh = new Mesh(gl, { geometry, program });
+			let animationFrameId: number;
 
-		function update(time: number) {
+			function update(time: number) {
+				animationFrameId = requestAnimationFrame(update);
+				program.uniforms.iTime.value = time * 0.001;
+				renderer.render({ scene: mesh });
+			}
 			animationFrameId = requestAnimationFrame(update);
-			program.uniforms.iTime.value = time * 0.001;
-			renderer.render({ scene: mesh });
-		}
-		animationFrameId = requestAnimationFrame(update);
-		container.appendChild(gl.canvas);
+			container.appendChild(gl.canvas);
 
-		function handleMouseMove(e: MouseEvent) {
-			if (!mouseInteraction) return;
-			const rect = container.getBoundingClientRect();
-			const x = (e.clientX - rect.left) / rect.width;
-			const y = 1.0 - (e.clientY - rect.top) / rect.height;
-			program.uniforms.uMouse.value = [x, y];
-		}
-		container.addEventListener("mousemove", handleMouseMove);
+			function handleMouseMove(e: MouseEvent) {
+				if (!mouseInteraction) return;
+				const rect = container.getBoundingClientRect();
+				const x = (e.clientX - rect.left) / rect.width;
+				const y = 1.0 - (e.clientY - rect.top) / rect.height;
+				program.uniforms.uMouse.value = [x, y];
+			}
+			container.addEventListener("mousemove", handleMouseMove);
 
-		return () => {
-			cancelAnimationFrame(animationFrameId);
-			window.removeEventListener("resize", resize);
-			container.removeEventListener("mousemove", handleMouseMove);
-			container.removeChild(gl.canvas);
-			gl.getExtension("WEBGL_lose_context")?.loseContext();
-		};
-	}, [
-		spinRotation,
-		spinSpeed,
-		offset,
-		color1,
-		color2,
-		color3,
-		contrast,
-		lighting,
-		spinAmount,
-		pixelFilter,
-		spinEase,
-		isRotate,
-		mouseInteraction,
-	]);
+			return () => {
+				cancelAnimationFrame(animationFrameId);
+				window.removeEventListener("resize", resize);
+				container.removeEventListener("mousemove", handleMouseMove);
+				container.removeChild(gl.canvas);
+				gl.getExtension("WEBGL_lose_context")?.loseContext();
+			};
+		}, [
+			spinRotation,
+			spinSpeed,
+			offset,
+			color1,
+			color2,
+			color3,
+			contrast,
+			lighting,
+			spinAmount,
+			pixelFilter,
+			spinEase,
+			isRotate,
+			mouseInteraction,
+		]);
 
-	return <div ref={containerRef} className="w-full h-full" />;
-}
+		return (
+			<div ref={containerRef} className="w-full h-full animate-blur bg-black" />
+		);
+	}
